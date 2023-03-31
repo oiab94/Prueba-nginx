@@ -15,7 +15,7 @@ app.listen(
 // * Se activan los MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
-app.use(cors());
+app.use(cors({origin: true}));
 
 // * Conexion a la DB
 require("./configs/mongoose.config");
