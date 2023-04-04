@@ -15,7 +15,7 @@ const KanbanBoard = () => {
 
 	// * Obtener todos los datos de la DB
 	useEffect(() => {
-		axios.get("http://localhost:8000/api/getProjects")
+		axios.get(process.env.REACT_APP_URL_API + "getProjects")
 			.then(projects => {setCards(projects.data)})
 			.catch(err => console.log(err))
 	}, [])
@@ -31,7 +31,7 @@ const KanbanBoard = () => {
 		}
 
 		axios.put(
-			"http://localhost:8000/api/updateProject/" + id,
+			process.env.REACT_APP_URL_API + "updateProject/" + id,
 			dataUpdate)
 			.then(res => navigate(0))
 	}
@@ -46,7 +46,7 @@ const KanbanBoard = () => {
 		}
 
 		axios.put(
-			"http://localhost:8000/api/updateProject/" + id,
+			process.env.REACT_APP_URL_API + "updateProject/" + id,
 			dataUpdate)
 			.then(res => navigate(0))
 	}
@@ -55,7 +55,7 @@ const KanbanBoard = () => {
 		const {id} = data;
 
 		axios.delete(
-			"http://localhost:8000/api/deleteProject/" + id)
+			process.env.REACT_APP_URL_API + "deleteProject/" + id)
 			.then(res => navigate(0))
 	}
 
