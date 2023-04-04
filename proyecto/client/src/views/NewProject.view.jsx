@@ -30,7 +30,7 @@ const NewProject = () => {
 		if(title && dueDate !== "")
 		// * Se envia los datos al post
 			axios.post(
-				"http://localhost:8000/api/setProject", 
+				process.env.REACT_APP_URL_API + "setProject", 
 				data)
 				.then(res => navigate("/")) // * Si la respuesta es exitosa retorna la "home"
 				.catch(err => console.log(err))
